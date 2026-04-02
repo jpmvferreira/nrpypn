@@ -128,13 +128,12 @@ def num_eval(
     :return: Numerical value of the expression
     """
     # DERIVED QUANTITIES BELOW
-    # We want m1+m2 = 1, so that
-    #         m2/m1 = qmassratio
-    # We find below:
-    nm1 = 1 / (1 + qmassratio)
-    nm2 = qmassratio / (1 + qmassratio)
-    # This way nm1+nm2 = (qmassratio+1)/(1+qmassratio) = 1 CHECK
-    #      and nm2/nm1 = qmassratio                        CHECK
+    # We set m1 = 1 and m2 = k, where k = qmassratio is the mass ratio.
+    # This gives m2/m1 = qmassratio and a total mass m1+m2 = 1+qmassratio.
+    nm1 = 1.0
+    nm2 = qmassratio
+    # This way nm2/nm1 = qmassratio                        CHECK
+    #      and nm1+nm2 = 1+qmassratio                      CHECK
 
     nS1U0 = nchi1x * nm1**2
     nS1U1 = nchi1y * nm1**2
